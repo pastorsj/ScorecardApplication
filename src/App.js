@@ -20,17 +20,17 @@ class App extends Component {
             <div className="top-bar-left">
               <ul className="menu">
                 <li>
-                  <button type="button" className= "button rose-bg" onClick={this.nav.bind(this, '/round')}>
+                  <button type="button" className="button rose-bg" onClick={this.nav.bind(this, '/round')}>
                     Add A Round
                   </button>
                 </li>
                 <li>
-                  <button type="button" className= "button rose-bg" onClick={this.nav.bind(this, '/rounds')}>
+                  <button type="button" className="button rose-bg" onClick={this.nav.bind(this, '/rounds')}>
                     View Recent Rounds
                   </button>
                 </li>
                 <li>
-                  <button type="button" className= "button rose-bg" onClick={this.nav.bind(this, '/statistics')}>
+                  <button type="button" className="button rose-bg" onClick={this.nav.bind(this, '/statistics')}>
                     View Statistics
                   </button>
                 </li>
