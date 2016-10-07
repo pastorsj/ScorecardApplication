@@ -10,39 +10,39 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="top-bar rose-bg">
-          <div className="top-bar-title">
-            <Link to="/">
-              <img src={logo} className="logo" alt="logo"/>
-            </Link>
-          </div>
-          <div>
-            <div className="top-bar-left">
-              <ul className="menu">
+        <nav className="navbar navbar-default navbar-fixed-top navbar-color-on-scroll" role="navigation">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <Link to="/">
+                <img src={logo} className="navbar-brand logo" alt="logo"/>
+              </Link>
+            </div>
+            <div className="collapse navbar-collapse navbar-left">
+              <ul className="nav navbar-nav">
                 <li>
-                  <button type="button" className="button rose-bg" onClick={this.nav.bind(this, '/round')}>
+                  <button type="button" className="btn rose-bg" onClick={this.nav.bind(this, '/round')}>
                     Add A Round
                   </button>
                 </li>
                 <li>
-                  <button type="button" className="button rose-bg" onClick={this.nav.bind(this, '/rounds')}>
+                  <button type="button" className="btn rose-bg" onClick={this.nav.bind(this, '/rounds')}>
                     View Recent Rounds
                   </button>
                 </li>
                 <li>
-                  <button type="button" className="button rose-bg" onClick={this.nav.bind(this, '/statistics')}>
+                  <button type="button" className="btn rose-bg" onClick={this.nav.bind(this, '/statistics')}>
                     View Statistics
                   </button>
                 </li>
               </ul>
             </div>
-            <div className="top-bar-right">
-              <ul className="menu">
-                <li><button type="button" className= "button">Logout</button></li>
+            <div className="collapse navbar-collapse navbar-right">
+              <ul className="nav navbar-nav">
+                <li><button type="button" className= "btn btn-success">Logout</button></li>
               </ul>
             </div>
           </div>
-        </div>
+        </nav>
         <div>
           {this.props.children}
         </div>
