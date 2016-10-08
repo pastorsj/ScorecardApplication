@@ -9,7 +9,48 @@ class Statistics extends Component {
   render() {
     return (
       <div>
-        Here are your statistics
+        <div className="ui five statistics">
+          <div className="statistic">
+            <div className="value">
+              76
+            </div>
+            <div className="label">
+              Average Score
+            </div>
+          </div>
+          <div className="statistic">
+            <div className="value">
+              45%
+            </div>
+            <div className="label">
+              Greens in Regulation
+            </div>
+          </div>
+          <div className="statistic">
+            <div className="value">
+              60%
+            </div>
+            <div className="label">
+              Fairways Hit
+            </div>
+          </div>
+          <div className="statistic">
+            <div className="value">
+              26
+            </div>
+            <div className="label">
+              Putts Per Round
+            </div>
+          </div>
+          <div className="statistic">
+            <div className="value">
+              25%
+            </div>
+            <div className="label">
+              Sand Save%
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

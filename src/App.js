@@ -11,12 +11,16 @@ class App extends Component {
     return (
       <div>
         <div className="ui secondary pointing menu">
+          <div className="header item">
+            <Link to="/">
+              <img src={logo} className="logo" alt="logo"/>
+            </Link>
+          </div>
           <a className="item" onClick={this.nav.bind(this, '/round')}>
             Add a Round
           </a>
           <a className="item" onClick={this.nav.bind(this, '/rounds')}>
             View Recent Rounds
-            Messages
           </a>
           <a className="item" onClick={this.nav.bind(this, '/statistics')}>
             View Statistics
