@@ -12,9 +12,9 @@ class AddRound extends Component {
         <div className="ui five column centered grid">
           <div className="row">
             <div className="three wide column"></div>
-            <div className="two widecolumn"></div>
+            <div className="two wide column"></div>
             <div className="six wide column">
-              <div className="ui form">
+              <div className="ui center form">
                 <div className="inline fields">
                   <label>Holes Played</label>
                   <div className="field">
@@ -32,44 +32,53 @@ class AddRound extends Component {
                 </div>
               </div>
             </div>
-            <div className="two widecolumn"></div>
+            <div className="two wide column"></div>
             <div className="three wide column"></div>
           </div>
           <div className="row">
             <div className="three wide column"></div>
-            <div className="two widecolumn">
+            <div className="two wide column">
               <button className="ui labeled icon button">
                 <i className="pointing left icon"></i>
                 Previous Hole
               </button>
             </div>
             <div className="six wide column">
-              <div classNAme="ui card">
+              <div className="ui centered raised green card">
                 <div className="content">
-                  <div className="center">
-                    <div className="ui input">
-                      <input type="text" placeholder="Score 1" />
-                    </div>
+                  <div className="header">Hole 1</div>
+                  <div className="meta">
+                    <span className="right floated">Red Tees: 300 yards</span>
+                    <span className="category">Honeywell Golf Course</span>
                   </div>
                 </div>
                 <div className="extra content">
-                  <div className="ui checkbox">
-                    <input type="checkbox" name="gir" />
-                    <label>Green in Regulation?</label>
-                  </div>
-                  <div className="ui checkbox">
-                    <input type="checkbox" name="fairway" />
-                    <label>Fairway Hit?</label>
-                  </div>
-                  <div className="center">
-                    <div className="ui input">
+                  <div className="left floated">
+                    <div className="ui mini input">
                       <input type="text" placeholder="Putts" />
+                    </div>
+                  </div>
+                  <div className="right floated">
+                    <div className="ui mini input">
+                      <input type="text" placeholder="Score" />
+                    </div>
+                  </div>
+                  <div className="left floated">
+                    <div className="ui checkbox">
+                      <input type="checkbox" name="gir" />
+                      <label>GIR</label>
+                    </div>
+                  </div>
+                  <div className="right floated">
+                    <div className="ui checkbox">
+                      <input type="checkbox" name="fairway" />
+                      <label>FW</label>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="two widecolumn">
+            <div className="two wide column">
               <button className="ui right labeled icon button">
                 <i className="pointing right icon"></i>
                 Next Hole
@@ -79,9 +88,9 @@ class AddRound extends Component {
           </div>
           <div className="row">
             <div className="three wide column"></div>
-            <div className="two widecolumn"></div>
+            <div className="two wide column"></div>
             <div className="six wide column"></div>
-            <div className="two widecolumn">
+            <div className="two wide column">
               <button className="ui disabled button">
                 <i className="save icon"></i>
                 Save Round

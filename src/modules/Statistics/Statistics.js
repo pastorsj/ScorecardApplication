@@ -3,16 +3,34 @@ import { Link, browserHistory } from 'react-router';
 import './Statistics.css';
 
 class Statistics extends Component {
-  nav(route) {
-    browserHistory.push(route);
+  constructor(props) {
+    super(props);
+    this.state = {
+      averageScore: '',
+      gir: '',
+      fairwaysHit: '',
+      putts: '',
+      sandSave: ''
+    }
   }
+
+  componentWillMount() {
+    this.setState({
+      averageScore: 74,
+      gir: 40,
+      fairwaysHit: 50,
+      putts: 20,
+      sandSave: 80
+    })
+  }
+
   render() {
     return (
       <div>
         <div className="ui five statistics">
           <div className="statistic">
             <div className="value">
-              76
+              {this.state.averageScore}
             </div>
             <div className="label">
               Average Score
@@ -20,7 +38,7 @@ class Statistics extends Component {
           </div>
           <div className="statistic">
             <div className="value">
-              45%
+              {this.state.gir}%
             </div>
             <div className="label">
               Greens in Regulation
@@ -28,7 +46,7 @@ class Statistics extends Component {
           </div>
           <div className="statistic">
             <div className="value">
-              60%
+              {this.state.fairwaysHit}%
             </div>
             <div className="label">
               Fairways Hit
@@ -36,7 +54,7 @@ class Statistics extends Component {
           </div>
           <div className="statistic">
             <div className="value">
-              26
+              {this.state.putts}
             </div>
             <div className="label">
               Putts Per Round
@@ -44,7 +62,7 @@ class Statistics extends Component {
           </div>
           <div className="statistic">
             <div className="value">
-              25%
+              {this.state.sandSave}%
             </div>
             <div className="label">
               Sand Save%

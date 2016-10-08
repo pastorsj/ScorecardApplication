@@ -52,4 +52,4 @@ build
 npm-debug.log
 
 conf.json
-public/dist/
+semantic/
