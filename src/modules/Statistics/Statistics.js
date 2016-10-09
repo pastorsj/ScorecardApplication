@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link, browserHistory } from 'react-router';
 import './Statistics.css';
 
 class Statistics extends Component {

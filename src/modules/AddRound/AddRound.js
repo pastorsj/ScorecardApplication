@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link, browserHistory } from 'react-router';
 import './AddRound.css';
+import $ from 'jquery';
 
 class AddRound extends Component {
   constructor(props) {
@@ -12,8 +12,10 @@ class AddRound extends Component {
       par: 0,
       round: [],
       holes: [],
-      currentHole: '1'
-    }
+      currentHole: 1
+    };
+    this.previousHole = this.previousHole.bind(this)
+    this.nextHole = this.nextHole.bind(this)
   }
 
   componentWillMount() {
@@ -23,13 +25,41 @@ class AddRound extends Component {
       yardage: '370',
       par: 4,
       location: "Fishers IN"
-    })
+    });
   }
 
   holesChanged(numberHoles) {
     this.setState({
       numberHoles
-    })
+    });
+  }
+
+  nextHole() {
+    var currentHole = this.state.currentHole;
+    if(currentHole <= this.state.numberHoles) {
+      currentHole++
+      $('#previousHole').removeClass('disabled');
+    }
+    if(currentHole >= this.state.numberHoles) {
+      $('#nextHole').addClass('disabled');
+    }
+    this.setState({
+      currentHole
+    });
+  }
+
+  previousHole() {
+    var currentHole = this.state.currentHole
+    if(currentHole >= 1) {
+      currentHole--
+      $('#nextHole').removeClass('disabled');
+    }
+    if(currentHole <= 1) {
+      $('#previousHole').addClass('disabled');
+    }
+    this.setState({
+      currentHole
+    });
   }
 
   render() {
@@ -102,7 +132,7 @@ class AddRound extends Component {
           <div className="row">
             <div className="three wide column"></div>
             <div className="two wide column">
-              <button className="ui labeled icon button">
+              <button id="previousHole" className="ui labeled disabled icon button" onClick={this.previousHole}>
                 <i className="pointing left icon"></i>
                 Previous Hole
               </button>
@@ -138,7 +168,7 @@ class AddRound extends Component {
               </div>
             </div>
             <div className="two wide column">
-              <button className="ui right labeled icon button">
+              <button id="nextHole" className="ui right labeled icon button" onClick={this.nextHole}>
                 <i className="pointing right icon"></i>
                 Next Hole
               </button>
