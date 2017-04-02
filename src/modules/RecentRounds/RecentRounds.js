@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
 import './RecentRounds.css';
+import api from '../../api';
+import ReactSemanticDatatable from '../ReactSemanticDatatable/CustomDatatable';
+import { Icon } from 'semantic-ui-react';
 
 class RecentRounds extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rounds: []
+      rounds: [],
+      data: []
     }
   }
 
-  componentWillMount() {
-    // $.ajax({
-    //     url: 'http://localhost:3000/rounds',
-    //     type: 'GET',
-    //     success: function(rounds){ 
-    //         this.setState({
-    //           rounds
-    //         })
-    //     },
-    //     error: function(err) {
-    //         alert('An error has occured, please try again', err);
-    //     }
-    // });
+  componentDidMount() {
+    api.get('rounds')
+      .then((res) => {
+        console.log(res);[]
+      })
+      .catch((err) => {
+        console.error(err);
+      })
     this.setState({
       rounds: [
         {
@@ -39,39 +38,32 @@ class RecentRounds extends Component {
           tournament: false
         }
       ]
+    }, () => {
+      this.formData()
+    })
+  }
+
+  formData() {
+    const rounds = this.state.rounds;
+    let data = []
+    rounds.forEach((round) => {
+      const entry = [round.date, round.course, round.score, round.holes, round.tournament ? (<Icon name='checked' />) : (<Icon name='x' />)];
+      data.push(entry);
+    });
+    this.setState({
+      data
     })
   }
 
   render() {
     return (
-      <div>
-        <table className='ui celled table'>
-            <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Course</th>
-                  <th>Score</th>
-                  <th>Holes</th>
-                  <th>Tournament?</th>
-                </tr>
-            </thead>
-            <tbody>
-              {
-                this.state.rounds.map((round, index) => {
-                  return (
-                    <tr key={index}>
-                      <td>{round.date}</td>
-                      <td>{round.course}</td>
-                      <td>{round.score}</td>
-                      <td>{round.holes}</td>
-                      <td>{round.tournament === true ? (<i className="checkmark icon"></i>) : ''}</td>
-                    </tr>
-                  );
-                })
-              }
-            </tbody>
-        </table>
-      </div>
+      <ReactSemanticDatatable
+        headers={['Date', 'Course', 'Score', 'Holes', 'Tournament']}
+        data={this.state.data}
+        searchOn={['Date', 'Course', 'Score']}
+        sortOn={['Date', 'Course', 'Score', 'Holes', 'Tournamet']}
+        pagination={true}
+      />
     );
   }
 }
