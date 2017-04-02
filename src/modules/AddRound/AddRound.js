@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './AddRound.css';
 import api from '../../api';
-import { Modal, Button } from 'semantic-ui-react';
+import { Modal, Button, Icon, Segment, Header } from 'semantic-ui-react';
 
 class AddRound extends Component {
 
@@ -9,10 +9,11 @@ class AddRound extends Component {
     super(props);
     this.state =  {
       courses: [],
-      openConfigurationModal: true,
+      openConfigurationModal: false,
     };
 
     this.closeConfigurationModal = this.closeConfigurationModal.bind(this);
+    this.openConfigurationModal = this.openConfigurationModal.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +41,12 @@ class AddRound extends Component {
   closeConfigurationModal() {
     this.setState({
       openConfigurationModal: false
+    })
+  }
+
+  openConfigurationModal() {
+    this.setState({
+      openConfigurationModal: true
     })
   }
 
@@ -91,18 +98,19 @@ class AddRound extends Component {
   render() {
     return (
       <div>
-        <Modal size="large" open={this.openConfigurationModal} onClose={this.closeConfigurationModal}>
+        <Button content='Add Round' icon='plus' labelPosition='left' floated='right' color='red' onClick={this.openConfigurationModal} />
+        <Modal stackable size="large" open={this.state.openConfigurationModal} onClose={this.closeConfigurationModal}>
           <Modal.Header>
-            Delete Your Account
+            Add Round
           </Modal.Header>
           <Modal.Content>
-            <p>Are you sure you want to delete your account</p>
+            Edit Modal Configurations...
           </Modal.Content>
           <Modal.Actions>
-            <Button negative>
-              No
+            <Button negative onClick={this.closeConfigurationModal}>
+              Cancel
             </Button>
-            <Button positive icon='checkmark' labelPosition='right' content='Yes' />
+            <Button positive icon='checkmark' labelPosition='right' content='Add' />
           </Modal.Actions>
         </Modal>
         {/*<div className="ui five column centered grid">*/}
