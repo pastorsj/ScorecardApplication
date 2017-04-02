@@ -47,7 +47,7 @@ class RecentRounds extends Component {
     const rounds = this.state.rounds;
     let data = []
     rounds.forEach((round) => {
-      const entry = [round.date, round.course, round.score, round.holes, round.tournament ? (<Icon name='checked' />) : (<Icon name='x' />)];
+      const entry = [round.date, round.course, round.score, round.holes, round.tournament ? (<Icon name='checked' centered />) : (<Icon name='x' />)];
       data.push(entry);
     });
     this.setState({
